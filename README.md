@@ -1,142 +1,89 @@
-# AG - Avaliação Técnica 
-Detalhamento de cada dependência do arquivo `pom.xml`:
+Aqui está o README explicando as dependências usadas no seu projeto:
 
-### Dependências do Projeto
+---
 
-#### Java 17
-```xml
-  <java.version>17</java.version>
-```
+# AG Project
 
-#### JUnit 5
-```xml
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter</artifactId>
-    <version>5.7.0</version>
-    <scope>test</scope>
-</dependency>
-```
-- **Propósito**: Fornece bibliotecas para testes unitários utilizando JUnit 5.
-- **Scope**: `test` - utilizado apenas durante a fase de teste.
+Este é um projeto de exemplo usando Spring Boot. Abaixo estão as dependências Maven utilizadas e suas respectivas finalidades.
 
-#### Spring Boot Starter Data JPA
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-```
-- **Propósito**: Fornece suporte para trabalhar com JPA (Java Persistence API) usando Spring Data JPA, facilitando a implementação de repositórios.
+## Dependências
 
-#### Spring Boot Starter Web
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-```
-- **Propósito**: Fornece bibliotecas necessárias para criar aplicações web RESTful usando Spring MVC.
+### 1. **Spring Boot Starter Parent**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-starter-parent`
+- **Version:** `3.3.1`
+- **Descrição:** Este é o projeto pai que fornece uma configuração básica e um conjunto padrão de dependências para aplicações Spring Boot. Ele simplifica o gerenciamento de versões das dependências e configurações de plugins.
 
-#### Flyway Core
-```xml
-<dependency>
-    <groupId>org.flywaydb</groupId>
-    <artifactId>flyway-core</artifactId>
-</dependency>
-```
-- **Propósito**: Gerencia versões e migrações do banco de dados de forma eficiente e controlada.
+### 2. **JUnit 5 (Jupiter)**
+- **GroupId:** `org.junit.jupiter`
+- **ArtifactId:** `junit-jupiter`
+- **Version:** `5.7.0`
+- **Scope:** `test`
+- **Descrição:** JUnit 5 é o framework de testes unitários utilizado no projeto. Ele permite escrever e executar testes para validar o comportamento da aplicação.
 
-#### Flyway Database PostgreSQL
-```xml
-<dependency>
-    <groupId>org.flywaydb</groupId>
-    <artifactId>flyway-database-postgresql</artifactId>
-</dependency>
-```
-- **Propósito**: Fornece suporte específico para migrações de banco de dados PostgreSQL utilizando Flyway.
+### 3. **Spring Boot Starter Data JPA**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-starter-data-jpa`
+- **Descrição:** Fornece uma integração fácil com o Spring Data JPA, facilitando o uso do JPA (Java Persistence API) para persistência de dados.
 
-#### Spring Boot DevTools
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-devtools</artifactId>
-    <scope>runtime</scope>
-    <optional>true</optional>
-</dependency>
-```
-- **Propósito**: Facilita o desenvolvimento, oferecendo funcionalidades como reinicialização automática e live reload.
-- **Scope**: `runtime` - utilizado em tempo de execução.
-- **Optional**: `true` - é opcional, não sendo necessária em todos os contextos.
+### 4. **Spring Boot Starter Web**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-starter-web`
+- **Descrição:** Inclui as bibliotecas necessárias para criar uma aplicação web usando Spring MVC, que facilita a construção de APIs RESTful.
 
-#### PostgreSQL
-```xml
-<dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <scope>runtime</scope>
-</dependency>
-```
-- **Propósito**: Driver JDBC para conectar-se a um banco de dados PostgreSQL.
-- **Scope**: `runtime` - utilizado em tempo de execução.
+### 5. **Flyway Core**
+- **GroupId:** `org.flywaydb`
+- **ArtifactId:** `flyway-core`
+- **Descrição:** Flyway é uma ferramenta de migração de banco de dados que permite versionar e gerenciar mudanças no esquema do banco de dados.
 
-#### Lombok
-```xml
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <optional>true</optional>
-</dependency>
-```
-- **Propósito**: Facilita a criação de código boilerplate, como getters, setters e construtores.
-- **Optional**: `true` - é opcional, podendo ser excluído em alguns contextos.
+### 6. **Flyway Database PostgreSQL**
+- **GroupId:** `org.flywaydb`
+- **ArtifactId:** `flyway-database-postgresql`
+- **Descrição:** Suporte específico do Flyway para o banco de dados PostgreSQL, permitindo a execução de migrações no PostgreSQL.
 
-#### Spring Boot Starter Test
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <scope>test</scope>
-</dependency>
-```
-- **Propósito**: Fornece um conjunto abrangente de dependências para testes utilizando Spring Boot.
-- **Scope**: `test` - utilizado apenas durante a fase de teste.
+### 7. **Spring Boot DevTools**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-starter-devtools`
+- **Scope:** `runtime`
+- **Optional:** `true`
+- **Descrição:** Ferramenta de desenvolvimento que facilita o processo de desenvolvimento, fornecendo funcionalidades como reinicialização automática da aplicação e cache desabilitado.
 
-### Configurações de Build
+### 8. **PostgreSQL JDBC Driver**
+- **GroupId:** `org.postgresql`
+- **ArtifactId:** `postgresql`
+- **Scope:** `runtime`
+- **Descrição:** O driver JDBC para PostgreSQL, necessário para a conexão com o banco de dados PostgreSQL.
 
-#### Spring Boot Maven Plugin
-```xml
-<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-    <configuration>
-        <excludes>
-            <exclude>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-            </exclude>
-        </excludes>
-    </configuration>
-</plugin>
-```
-- **Propósito**: Simplifica o processo de empacotamento e execução de aplicações Spring Boot.
-- **Configuração**: Exclui a dependência `lombok` durante o empacotamento da aplicação.
+### 9. **Lombok**
+- **GroupId:** `org.projectlombok`
+- **ArtifactId:** `lombok`
+- **Optional:** `true`
+- **Descrição:** Lombok é uma biblioteca que reduz a quantidade de código boilerplate no Java, gerando automaticamente métodos getter, setter, construtores e outros.
 
-_________________
-## Coverege 
+### 10. **Spring Boot Starter Test**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-starter-test`
+- **Scope:** `test`
+- **Descrição:** Pacote que inclui diversas bibliotecas para facilitar a criação e execução de testes, como JUnit, Hamcrest, e Mockito.
 
-Conforme solicitado, atualmente a cobertuda de teste unitário está a cima de 80%
+### 11. **H2 Database**
+- **GroupId:** `com.h2database`
+- **ArtifactId:** `h2`
+- **Scope:** `test`
+- **Descrição:** H2 é um banco de dados em memória utilizado para testes. Ele permite que a aplicação seja testada sem a necessidade de configurar um banco de dados real.
 
-![image](https://github.com/AndersonGalindro/AG/assets/34112032/a864f6ca-9a26-452b-bbfa-64c42fc0c0c7)
-_________________
-## Banco de dados
+### 12. **JetBrains Annotations**
+- **GroupId:** `org.jetbrains`
+- **ArtifactId:** `annotations`
+- **Version:** `RELEASE`
+- **Scope:** `compile`
+- **Descrição:** Inclui anotações da JetBrains, como `@NotNull` e `@Nullable`, que ajudam a fornecer dicas para o compilador e IDEs, melhorando a qualidade do código.
 
-![image](https://github.com/AndersonGalindro/AG/assets/34112032/28b0b116-f1bd-463a-ad96-05800e9a281a)
-_________________
+## Plugins
 
-# Util
- -  Inicialmente eu havia pensado em colocar uma carga no banco de dados, utilizando o flyway, mas, resolvi criar uma collection e juntamente a mesma uma Environment, Então é só importar para o postman e utilizar, ambos estão na raíz do projeto com os respectivos nome Sistema de Gestão de Projetos.postman_collection.json e New Environment.postman_environment.json
-- Gostaria de deixar claro que aqui só se encontra o Back-end do desafio, já que a recrutadora afirmou que no momento busca um profissional Java Senior com conhecimento em Javascript
-- ![image](https://github.com/AndersonGalindro/AG/assets/34112032/e81193f2-5bf9-482c-943d-8bd0884be1ed)
-- Se necessário, posso apresentar algum outro projeto em AngularJS como parte do meu trabalho com a linguagem Javascript
+### 1. **Spring Boot Maven Plugin**
+- **GroupId:** `org.springframework.boot`
+- **ArtifactId:** `spring-boot-maven-plugin`
+- **Descrição:** Plugin que permite empacotar a aplicação Spring Boot como um JAR executável. Também facilita o gerenciamento do ciclo de vida da aplicação durante o desenvolvimento.
 
+---

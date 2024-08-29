@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "0b6e9977-8a23-4fa3-aab6-d4c9b6ae82ed",
+		"name": "Sistema de Gestão de Projetos",
+		"description": "Coleção para testar o sistema de gestão de projetos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Adicionar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Cliente 1\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cliente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Cliente por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cliente/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos os Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cliente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projetos",
+			"item": [
+				{
+					"name": "Adicionar Projeto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Projeto 1\",\n    \"cliente\": {\n        \"id\": 1\n    },\n    \"status\":\"Aberto\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projeto",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projeto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Projeto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/projeto/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projeto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Projeto por Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/projeto/status?status=aberto",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projeto",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "aberto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Projetos por Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/projeto/cliente/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projeto",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Atividades",
+			"item": [
+				{
+					"name": "Adicionar Atividade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Atividade 1\",\n    \"projeto\":{\"id\":1} \n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/atividade",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"atividade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Atividade por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/atividade/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"atividade",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas as Atividades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/atividade",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"atividade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
